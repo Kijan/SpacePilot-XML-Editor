@@ -37,7 +37,7 @@ Das Tool eignet sich sowohl für Power-User, die ihr Gerät voll ausnutzen wolle
 
 ## Technische Basis
 
-- **Python 3**, GUI mit [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
+- **Python 3**, GUI mit tkinter
 - Einfach zu erweitern und anzupassen
 - Projekt und Source Code auf GitHub, Pull Requests und Verbesserungen willkommen!
 
