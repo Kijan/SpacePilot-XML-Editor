@@ -23,7 +23,6 @@ Das Tool eignet sich sowohl für Power-User, die ihr Gerät voll ausnutzen wolle
   - **Deadband**-Wert pro Achse einstellbar
 - **Unterstützung für alle Standardtasten** (WASD, F-Tasten, Pfeile, Sondertasten…)
 - **Makro-Unterstützung** (optional)
-- **Vorschau-Modus** zur Kontrolle der neuen Konfiguration
 - **Keine Installation nötig:**  
   - Als portable EXE für Windows nutzbar  
   - Auch Quellcode-Version für Python verfügbar (cross-platform)
