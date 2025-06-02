@@ -21,14 +21,8 @@ Das Tool eignet sich sowohl für Power-User, die ihr Gerät voll ausnutzen wolle
   - Pro Achse genau zwei Bereiche mit frei wählbarem Min/Max
   - Zuweisung von Tastendrücken oder Makros als Output
   - **Deadband**-Wert pro Achse einstellbar
-- **Bearbeitung der ButtonBank:**
-  - Übersichtliche Liste aller Tasten (HIDButton-IDs)
-  - Direkte Zuweisung von Tastaturbefehlen oder Makros
-  - Kleine Bildchen zeigen die Position der Tasten auf der Maus
-  - Buttons hinzufügen und entfernen
 - **Unterstützung für alle Standardtasten** (WASD, F-Tasten, Pfeile, Sondertasten…)
 - **Makro-Unterstützung** (optional)
-- **Vorschau-Modus** zur Kontrolle der neuen Konfiguration
 - **Keine Installation nötig:**  
   - Als portable EXE für Windows nutzbar  
   - Auch Quellcode-Version für Python verfügbar (cross-platform)
@@ -37,7 +31,7 @@ Das Tool eignet sich sowohl für Power-User, die ihr Gerät voll ausnutzen wolle
 
 ## Technische Basis
 
-- **Python 3**, GUI mit [PySimpleGUI](https://github.com/PySimpleGUI/PySimpleGUI)
+- **Python 3**, GUI mit tkinter
 - Einfach zu erweitern und anzupassen
 - Projekt und Source Code auf GitHub, Pull Requests und Verbesserungen willkommen!
 
