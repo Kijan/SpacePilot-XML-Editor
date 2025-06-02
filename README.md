@@ -47,7 +47,8 @@ The **SpacePilot XML Editor** lets you conveniently edit axis and button mapping
 - **License:**  
   GNU GPL v3
 
-
+---
+---
 
 # SpacePilot XML Editor
 
