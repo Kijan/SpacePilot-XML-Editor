@@ -5,14 +5,14 @@ import shutil
 import xml.etree.ElementTree as ET
 
 MOVE_AXES = [
-    ("X", "HIDMultiAxis_X"),
-    ("Y", "HIDMultiAxis_Y"),
-    ("Z", "HIDMultiAxis_Z"),
+    ("X (Links-Rechts schieben)", "HIDMultiAxis_X"),
+    ("Y (Vor-Zurück schieben)", "HIDMultiAxis_Y"),
+    ("Z (Hochziehen bzw runterdrücken)", "HIDMultiAxis_Z"),
 ]
 ROT_AXES = [
-    ("Rx", "HIDMultiAxis_Rx"),
-    ("Ry", "HIDMultiAxis_Ry"),
-    ("Rz", "HIDMultiAxis_Rz"),
+    ("Rx (Vor-Zurück kippen)", "HIDMultiAxis_Rx"),
+    ("Ry (Links-Rechts kippen)", "HIDMultiAxis_Ry"),
+    ("Rz (Links-Rechts drehen)", "HIDMultiAxis_Rz"),
 ]
 
 KEYCODE_TO_LABEL = {
@@ -48,6 +48,15 @@ def shorten_path(path, maxlen=60):
         return parts[0] + os.sep + "..." + os.sep + parts[-1]
     return "..." + path[-maxlen:]
 
+def get_cfg_default_path():
+    # Standard: C:\Users\USERNAME\AppData\Roaming\3Dconnexion\3DxWare\Cfg
+    appdata = os.environ.get('APPDATA')
+    if appdata:
+        cfg_dir = os.path.join(appdata, "3Dconnexion", "3DxWare", "Cfg")
+        if os.path.isdir(cfg_dir):
+            return cfg_dir
+    return os.path.expanduser("~")  # fallback: Homeverzeichnis
+
 class ToolTip:
     def __init__(self, widget, text):
         self.widget = widget
@@ -76,9 +85,9 @@ class ToolTip:
 root = tk.Tk()
 root.title("SpacePilot Pro Achsen-Editor")
 
-root.geometry("950x900")
-root.minsize(950, 900)
-root.maxsize(950, 900)
+root.geometry("1050x900")
+root.minsize(1050, 900)
+root.maxsize(1050, 900)
 
 # --- Menüleiste / Buttonleiste ---
 menu_frame = tk.Frame(root)
@@ -92,7 +101,7 @@ loaded_file_var = tk.StringVar(value="Keine Datei geladen.")
 loaded_file_label = tk.Label(root, textvariable=loaded_file_var, anchor="w", relief="groove", width=80)
 loaded_file_label.pack(fill="x", padx=10)
 def update_loaded_file(path):
-    display = shorten_path(path, 70)
+    display = path
     loaded_file_var.set(display)
     loaded_file_label.tooltip = ToolTip(loaded_file_label, path)
 
@@ -105,8 +114,10 @@ current_xml_path = None
 
 def ask_for_xml():
     global current_xml_path
+    start_dir = get_cfg_default_path()
     filename = filedialog.askopenfilename(
         title="Bitte XML-Datei wählen",
+        initialdir=start_dir,
         filetypes=[("XML-Dateien", "*.xml"), ("Alle Dateien", "*.*")]
     )
     if filename:
