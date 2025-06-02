@@ -1,60 +1,52 @@
-# SpacePilot Pro XML Editor
+# SpacePilot XML Editor
 
-Ein einfaches, portables Windows-Tool zum Bearbeiten und Erstellen von XML-Konfigurationsdateien für die SpacePilot Pro 3D-Maus.
-
----
-
-## Projektbeschreibung
-
-Der **SpacePilot Pro XML Editor** ermöglicht das komfortable Bearbeiten, Anpassen und Erstellen von Geräte-Konfigurationsdateien (XML) für die SpacePilot Pro und andere 3D-Mäuse.  
-Ziel ist eine intuitive Bedienoberfläche, mit der Achsen und Tasten flexibel auf Tastaturbefehle oder Makros gemappt werden können – ganz ohne XML-Kenntnisse.
-
-Das Tool eignet sich sowohl für Power-User, die ihr Gerät voll ausnutzen wollen, als auch für Neulinge, die mit wenigen Klicks ihre SpaceMouse optimal konfigurieren möchten.
+Mit dem **SpacePilot XML Editor** kannst du die Achsenbelegungen von 3Dconnexion SpacePilot/SpaceMouse-Geräten bequem über eine grafische Benutzeroberfläche bearbeiten.
 
 ---
 
 ## Features
 
-- **XML-Dateien laden und speichern** (Originalformat bleibt erhalten)
-- **Bearbeitung der AxisBank:**
-  - Alle 6 Achsen (X, Y, Z, Rx, Ry, Rz)
-  - Pro Achse genau zwei Bereiche mit frei wählbarem Min/Max
-  - Zuweisung von Tastendrücken oder Makros als Output
-  - **Deadband**-Wert pro Achse einstellbar
-- **Unterstützung für alle Standardtasten** (WASD, F-Tasten, Pfeile, Sondertasten…)
-- **Makro-Unterstützung** (optional)
-- **Keine Installation nötig:**  
-  - Als portable EXE für Windows nutzbar  
-  - Auch Quellcode-Version für Python verfügbar (cross-platform)
+- Öffnen, Bearbeiten und Speichern von 3Dconnexion XML-Konfigurationen
+- Unterstützt geteilte Achsenbereiche (z.B. Keybindings für Vorwärts/Rückwärts)
+- Keycodes werden übersichtlich als Tasten angezeigt und gespeichert
+- Automatisches Backup der Originaldatei vor dem Überschreiben (`*.bak`)
+- Übersichtliche Bedienung ohne Installation (als EXE nutzbar)
+- Standard-Speicherort: Öffnet automatisch den 3Dconnexion-Konfigurationsordner
+- Unterstützung für alle Hauptachsen (X, Y, Z, Rx, Ry, Rz)
+- Deadband einstellbar
+- Keine externen Abhängigkeiten außer Standard-Python + tkinter
 
 ---
 
-## Technische Basis
+## Installation & Nutzung
 
-- **Python 3**, GUI mit tkinter
-- Einfach zu erweitern und anzupassen
-- Projekt und Source Code auf GitHub, Pull Requests und Verbesserungen willkommen!
+1. **Starten der App:**  
+   - Als Python-Skript:  
+     ```bash
+     python main.py
+     ```
+   - Als Windows-EXE:  
+     Einfach die `SpacePilot-XML-Editor.exe` doppelklicken (kein Python nötig).
 
----
+2. **XML öffnen:**  
+   Beim ersten Öffnen startet der Dialog direkt im 3Dconnexion-Konfigurationsordner (`%APPDATA%\3Dconnexion\3DxWare\Cfg`).  
+   Dort findest du deine Gerätekonfigurationen.
 
-## Für wen ist das Tool?
-
-- SpacePilot Pro Nutzer, die ihre Tasten/Belegung individuell gestalten möchten
-- Power-User, die spezielle Tastaturbefehle und Makros zuweisen wollen
-- Systemintegratoren, Modder und Entwickler im CAD-/3D-Bereich
-
----
-
-## Lizenz
-
-Dieses Projekt steht unter der [GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.de.html).
+3. **Bearbeiten & Speichern:**  
+   - Änderungen an den Achsen oder Tasten werden sofort im UI sichtbar.
+   - Beim Speichern wird immer automatisch ein Backup (`.bak`) der alten Datei angelegt.
 
 ---
 
-## Hinweis
+## Hinweise
 
-Das Tool befindet sich in aktiver Entwicklung.  
-Feature-Wünsche, Feedback und Pull Requests sind jederzeit willkommen!
+- **Backup:**  
+  Vor jedem Speichern wird die originale XML automatisch als `.bak` gesichert.
+- **Release-Version:**  
+  Dies ist die erste veröffentlichte Version (`v1.0.0`).  
+  Rückmeldungen, Featurewünsche oder Bugreports gerne als GitHub-Issue!
+- **Lizenz:**  
+  GNU GPL v3
 
 ---
 
